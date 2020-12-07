@@ -25,12 +25,12 @@ public class StatsService {
 
     //Метод подсчета номеров месяцев, где выявлены максимумы продаж
     public int calculateNumberMaxMonth(int[] monthlySales) {
-        int  month = 0, max = 0, numberOfMonth=0;
+        int month = 0, max = 0, numberOfMonth = 0;
 
         for (int monthlySale : monthlySales) {
             month++;
             if (monthlySale >= max) {
-                max=monthlySale;
+                max = monthlySale;
                 numberOfMonth = month;
             }
         }
@@ -39,12 +39,12 @@ public class StatsService {
 
     //Метод подсчета номеров месяцев, где выявлены минимумы продаж
     public int calculateNumberMinMonth(int[] monthlySales) {
-        int  month = 0, min = monthlySales[0], numberOfMonth=0;
+        int month = 0, min = monthlySales[0], numberOfMonth = 0;
 
         for (int monthlySale : monthlySales) {
             month++;
             if (monthlySale <= min) {
-                min=monthlySale;
+                min = monthlySale;
                 numberOfMonth = month;
             }
         }
@@ -67,6 +67,7 @@ public class StatsService {
         }
         return HigherAmount;
     }
+
     //Метод подсчета количества месяцев, где доходы от прожад ниже среднего значения
     public int calculateQuantityOfLowerThenAvarageAmount(int[] monthlySales) {
         int sum = 0, avarage, LowerAmount = 0;
@@ -83,8 +84,6 @@ public class StatsService {
         }
         return LowerAmount;
     }
-
-
 }
 
 
