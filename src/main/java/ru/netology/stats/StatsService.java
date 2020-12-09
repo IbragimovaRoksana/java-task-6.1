@@ -12,15 +12,12 @@ public class StatsService {
     }
 
     //Метод подсчета среднего значения продаж
-    public int calculateAvarageAmount(int[] monthlySales) {
-        int sum = 0, avarage = 0;
+    public int calculateAverageAmount(int[] monthlySales) {
+        int average;
         int length = monthlySales.length;
-
-        for (int monthlySale : monthlySales) {
-            sum += monthlySale;
-        }
-        avarage = sum / length;
-        return avarage;
+        int sum = calculateSum(monthlySales);
+        average = sum / length;
+        return average;
     }
 
     //Метод подсчета номеров месяцев, где выявлены максимумы продаж
@@ -52,37 +49,27 @@ public class StatsService {
     }
 
     //Метод подсчета количества месяцев, где доходы от прожад выше среднего значения
-    public int calculateQuantityOfHigherThenAvarageAmount(int[] monthlySales) {
-        int sum = 0, avarage, HigherAmount = 0;
-        int length = monthlySales.length;
+    public int calculateQuantityOfHigherThenAverageAmount(int[] monthlySales) {
+        int higherAmount = 0;
+        int average = calculateAverageAmount(monthlySales);
 
         for (int monthlySale : monthlySales) {
-            sum += monthlySale;
+            if (monthlySale > average)
+                higherAmount++;
         }
-        avarage = sum / length;
-
-        for (int monthlySale : monthlySales) {
-            if (monthlySale > avarage)
-                HigherAmount++;
-        }
-        return HigherAmount;
+        return higherAmount;
     }
 
     //Метод подсчета количества месяцев, где доходы от прожад ниже среднего значения
-    public int calculateQuantityOfLowerThenAvarageAmount(int[] monthlySales) {
-        int sum = 0, avarage, LowerAmount = 0;
-        int length = monthlySales.length;
+    public int calculateQuantityOfLowerThenAverageAmount(int[] monthlySales) {
+        int lowerAmount = 0;
+        int average = calculateAverageAmount(monthlySales);
 
         for (int monthlySale : monthlySales) {
-            sum += monthlySale;
+            if (monthlySale < average)
+                lowerAmount++;
         }
-        avarage = sum / length;
-
-        for (int monthlySale : monthlySales) {
-            if (monthlySale < avarage)
-                LowerAmount++;
-        }
-        return LowerAmount;
+        return lowerAmount;
     }
 }
 

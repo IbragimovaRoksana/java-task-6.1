@@ -18,11 +18,11 @@ class StatsServiceTest {
     }
 
     @ParameterizedTest
-    @CsvSource("'CalculateAvarageAmount',8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18, 15")
-    void shouldCalculateAvarageAmount(String text, int january, int febrary, int march, int april, int may, int june, int july, int august, int september, int october, int november, int desember, int expected) {
+    @CsvSource("'CalculateAverageAmount',8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18, 15")
+    void shouldCalculateAverageAmount(String text, int january, int febrary, int march, int april, int may, int june, int july, int august, int september, int october, int november, int desember, int expected) {
         StatsService service = new StatsService();
         int[] salesAmount = {january, febrary, march, april, may, june, july, august, september, october, november, desember};
-        int actual = service.calculateAvarageAmount(salesAmount);
+        int actual = service.calculateAverageAmount(salesAmount);
         assertEquals(expected, actual);
     }
 
@@ -49,19 +49,19 @@ class StatsServiceTest {
 
     @ParameterizedTest
     @CsvSource("'QuantityOFHigherMonth',8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18, 5")
-    void shouldCalculateQuantityOfHigherThenAvarageAmount(String text, int january, int febrary, int march, int april, int may, int june, int july, int august, int september, int october, int november, int desember, int expected) {
+    void shouldCalculateQuantityOfHigherThenAverageAmount(String text, int january, int febrary, int march, int april, int may, int june, int july, int august, int september, int october, int november, int desember, int expected) {
         StatsService service = new StatsService();
         int[] salesAmount = {january, febrary, march, april, may, june, july, august, september, october, november, desember};
-        int actual = service.calculateQuantityOfHigherThenAvarageAmount(salesAmount);
+        int actual = service.calculateQuantityOfHigherThenAverageAmount(salesAmount);
         assertEquals(expected, actual);
     }
 
     @ParameterizedTest
     @CsvSource("'QuantityOFLowerMonth',8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18, 5")
-    void shouldCalculateQuantityOfLowerThenAvarageAmount(String text, int january, int febrary, int march, int april, int may, int june, int july, int august, int september, int october, int november, int desember, int expected) {
+    void shouldCalculateQuantityOfLowerThenAverageAmount(String text, int january, int febrary, int march, int april, int may, int june, int july, int august, int september, int october, int november, int desember, int expected) {
         StatsService service = new StatsService();
         int[] salesAmount = {january, febrary, march, april, may, june, july, august, september, october, november, desember};
-        int actual = service.calculateQuantityOfLowerThenAvarageAmount(salesAmount);
+        int actual = service.calculateQuantityOfLowerThenAverageAmount(salesAmount);
         assertEquals(expected, actual);
     }
 }
